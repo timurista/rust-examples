@@ -5,13 +5,15 @@ fn main() {
 
     // created at compile time
     // available to set string
-    let _s = format!("{} is highest", b);
+    let _s = format!("{} is highest", _b);
     // macro, converted before run
 
     // println!("{} is highest", b);
     // println!("{} is other", other(5,9));
     // loopto10();
-    array_loop();
+    // array_loop();
+    // strings();
+    println!("l len: {}",count_l("hello 中国"));
 }
 
 fn highest(a:i32, b:u32, c:i8) -> i32 {
@@ -58,4 +60,36 @@ fn array_loop() {
         }
         println!("{}", n);
     }
+}
+
+fn strings() {
+    // &str is pointer to slice of string
+    // whereas string is vector owns the array
+    // which means it has to copy around that string
+    // &str is smaller as a pointer much lighter in memory
+
+    let s = String::from("Hello 中国");
+
+    println!("S Len = {}", s.len());
+    // len == length of bytes
+
+
+    // need to know will take more than 8 chars
+    for c in s.chars() {
+        println!("{}",c);
+    } 
+
+    for c in s.bytes() {
+        println!("{}",c);
+    } 
+}
+
+fn count_l(s:&str) ->i32 {
+    let mut res = 0;
+    for c in s.chars() {
+        if c == 'l' {
+            res +=1;
+        }
+    }
+    res
 }
