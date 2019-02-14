@@ -14,3 +14,11 @@ Run new project
 `cargo run`
 
 to donwload other packages etc.
+
+## TODO import
+
+md5 hash module and import example with javascript
+
+## TO RUN node modules install neon
+
+`npm install --global neon-cli`
